@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "../../components";
-// import Gif from "../../assets/images/Gif.gif";
-// import Logo from "../../assets/images/logo.png";
+
 import Slider, { SliderTooltip } from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./style.css";
