@@ -12,7 +12,7 @@ function App() {
   const [totalSupply, setTotalSupply] = useState(0);
   const [price, setPrice] = useState(0);
   const [displayPrice, setDisplayPrice] = useState(0);
-
+  const [maxSupply, setMaxSupply] = useState(0);
   const [lessMintAmountAlert, setLessMintAmountAlert] = useState(false);
   const [accessAccountDenied, setAccessAccountDenied] = useState(false);
   const [installEthereum, setInstallEthereum] = useState(false);
@@ -74,15 +74,17 @@ function App() {
       });
       const totalSupply = await contract.methods.totalSupply().call();
       setTotalSupply(totalSupply);
-
+      console.log(totalSupply);
       const price = await contract.methods.price().call();
       setPrice(price);
       const displayPrice = window.web3.utils.fromWei(price, "ether");
       setDisplayPrice(displayPrice);
-
+      const MAX_SUPPlY = await contract.methods.MAX_SUPPlY().call();
+      // console.log("MAX_SUPPLY:", MAX_SUPPlY);
+      setMaxSupply(MAX_SUPPlY);
       //event will be fired by the smart contract when a new AngryBunny is minted
       contract.events
-        .AngryBunniesMinted()
+        .NFTMinted()
         .on("data", async function (result) {
           setTotalSupply(result.returnValues[0]);
         })
@@ -130,7 +132,7 @@ function App() {
           setConfirmTransaction(true);
           const finalPrice = Number(price) * mintCount;
           contract.methods
-            .mintAngryBunnies(mintCount)
+            .mintNFT(mintCount)
             .send({ from: account, value: finalPrice })
             .on("transactionHash", function () {
               // swal({
@@ -190,6 +192,7 @@ function App() {
         totalSupply={totalSupply}
         displayPrice={displayPrice}
         loadWeb3={loadWeb3}
+        maxSupply={maxSupply}
       />
       <InformationModal
         open={lessMintAmountAlert}

@@ -3,7 +3,14 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HeroSection } from "../sections";
 toast.configure();
-const Home = ({ account, mint, totalSupply, displayPrice, loadWeb3 }) => {
+const Home = ({
+  account,
+  mint,
+  totalSupply,
+  displayPrice,
+  loadWeb3,
+  maxSupply,
+}) => {
   return (
     <div>
       <Layout>
@@ -13,6 +20,7 @@ const Home = ({ account, mint, totalSupply, displayPrice, loadWeb3 }) => {
           totalSupply={totalSupply}
           displayPrice={displayPrice}
           loadWeb3={loadWeb3}
+          maxSupply={maxSupply}
         />
       </Layout>
     </div>

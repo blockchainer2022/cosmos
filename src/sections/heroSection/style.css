@@ -18,3 +18,7 @@
 .rc-slider-tooltip-content .rc-slider-tooltip-arrow {
   border-top-color: #ffc901;
 }
+
+button{
+  color: black;
+}
