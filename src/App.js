@@ -195,7 +195,7 @@ function App() {
         open={lessMintAmountAlert}
         onClose={setLessMintAmountAlert}
         title="Oops"
-        text="Atleast 1 Pixel Zombie should be minted"
+        text="Atleast 1 Starfish should be minted"
       />
       <InformationModal
         open={accessAccountDenied}
@@ -237,7 +237,7 @@ function App() {
         open={switchToMainnet}
         onClose={setswitchToMainnet}
         title="Error"
-        text="Please switch to mainnet to mint Pixel Zombie"
+        text="Please switch to mainnet to mint Starfish"
       />
       <InformationModal
         open={ethereumCompatibleBrowser}

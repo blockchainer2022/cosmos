@@ -10,6 +10,14 @@ const Index = ({ account, mint, totalSupply, displayPrice, loadWeb3 }) => {
 
   const { Handle } = Slider;
 
+  const clickHandler = () => {
+    if (account) {
+      mint(value);
+    } else {
+      loadWeb3();
+    }
+  };
+
   const handle = (props) => {
     const { value, dragging, Index, ...restProps } = props;
     if (value > 0) {
@@ -31,50 +39,25 @@ const Index = ({ account, mint, totalSupply, displayPrice, loadWeb3 }) => {
 
   return (
     <section className="py-10">
-      <div className="container ">
-        <div className=" w-full">
-          <div className="flex justify-center mb-20 items-center">
-            <Button color="primary" onClick={() => loadWeb3()}>
-              {account
-                ? account.slice(0, 8) +
-                  "..." +
-                  account.slice(account.length - 5)
-                : "disconnected"}
-            </Button>
+      <div className="container  w-full flex justify-center">
+        <div className="">
+          <div className="text-center text-xs mb-5">
+            <span>Total Nebula Conqueror Minted: {totalSupply} / 7777</span>
           </div>
-        </div>
-        <div className=" w-full ">
-          <p className="text-center sm:mx-auto  text-lg font-black mt-6  w-full  max-w-lg ">
-            The Nebula Conqueror is a 10,000 NFT's series of space Avatar which
-            will be usable as characters in our cosmos conquest browser P2E
-            game.
+          <Slider min={1} max={5} defaultValue={1} handle={handle} />
+          <p className="text-center text-xs mt-2">
+            {account
+              ? `Mint ${value} Starfish(${(value * displayPrice).toFixed(
+                  4
+                )} Ether)`
+              : "Connect Account"}
           </p>
-
-          <div className="mt-14 max-w-md w-full mx-auto">
-            <div className="flex justify-center text-xs mb-5">
-              <span>Total Nebula Conqueror Minted: {totalSupply} / 7777</span>
-            </div>
-            <Slider min={1} max={5} defaultValue={1} handle={handle} />
-            <p className="text-center text-xs mt-2">
+          <div className="mt-8 text-center">
+            <Button onClick={clickHandler} color="primary">
               {account
-                ? `Mint ${value} Starfish(${(value * displayPrice).toFixed(
-                    4
-                  )} Ether)`
-                : "Connect Account"}
-            </p>
-            <div className="mt-8 text-center">
-              <Button
-                onClick={() => mint(value)}
-                disabled={!account ? true : false}
-                color="primary"
-              >
-                Mint Your Nebula Conqueror
-              </Button>
-              <p className="mt-10 text-center">
-                5 fully unique are hidden in the 10k NFTs.
-              </p>
-              <p className="mx-auto text-center">Good luck!</p>
-            </div>
+                ? "Mint Your Nebula Conqueror"
+                : "Connect Wallet to Mint"}
+            </Button>
           </div>
         </div>
       </div>
