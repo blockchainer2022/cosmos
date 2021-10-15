@@ -56,7 +56,7 @@ const Index = ({
           <Slider min={1} max={5} defaultValue={1} handle={handle} />
           <p className="text-center text-xs mt-2">
             {account
-              ? `Mint ${value} Nebula Conqueror((${(
+              ? `Mint ${value} Nebula Conqueror(${(
                   value * displayPrice
                 ).toFixed(4)} Ether)`
               : "Connect Account"}
