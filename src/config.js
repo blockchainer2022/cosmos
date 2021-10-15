@@ -183,23 +183,9 @@ export const contractAbi = [
   },
   {
     inputs: [],
-    name: "pausePreSale",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "pauseSale",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "presaleOpen",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "view",
     type: "function",
   },
   {
@@ -335,13 +321,6 @@ export const contractAbi = [
   },
   {
     inputs: [],
-    name: "unpausePreSale",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "unpauseSale",
     outputs: [],
     stateMutability: "nonpayable",
@@ -363,4 +342,4 @@ export const contractAbi = [
   },
 ];
 // export const contractAddress = "0x79B0105460d9c1254840c0823D7f094333c11196";
-export const contractAddress = "0x79B0105460d9c1254840c0823D7f094333c11196";
+export const contractAddress = "0x2253C88D95cD26827374Ae396A3b8e23f8c5c2BB";
